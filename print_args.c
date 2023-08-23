@@ -18,7 +18,7 @@ int print_args(char format, va_list args, int *count)
 	switch (format)
 	{
 		case 'c':
-			print_char(va_arg(args, int), count);
+			_putchar(va_arg(args, int));
 			printed++;
 			break;
 		case 's':

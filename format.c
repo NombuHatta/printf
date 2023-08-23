@@ -4,16 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-/**
- * print_char - Prints a single characters
- * @c: The character
- * @count: Pointer to the count of printed characters
- */
-void print_char(char c, int *count)
-{
-	write(1, &c, 1);
-	(*count)++;
-}
 
 /**
  * print_string - Prints a string
