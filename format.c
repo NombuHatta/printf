@@ -2,6 +2,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * print_char - Prints a single characters
@@ -21,10 +22,8 @@ void print_char(char c, int *count)
  */
 void print_string(char *s, int *count)
 {
-	int len = 0;
+	int len = strlen(s);
 
-	while (s[len] != '\0')
-		len++;
 	write(1, s, len);
 	(*count) += len;
 }
@@ -40,8 +39,12 @@ void print_integer(int num, int *count)
 	int i, digits = 0;
 	char *num_str;
 
-	if (num_copy == 0)
-		digits = 1;
+	if (num_copy < 0)
+	{
+		write(1, "-", 1);
+		(*count)++;
+		num_copy = -num_copy;
+	}
 	else
 	{
 		while (num_copy != 0)
